@@ -1,12 +1,12 @@
 <br/>
 <p align="center">
   <a href="https://github.com/ZeadShalaby/payment-method">
-          <img src="https://imgur.com/BBvbSTc.png?w=1600" alt="Logo" width="480" height="350">
+          <img src="https://imgur.com/BBvbSTc.png?w=1600" alt="Logo" width="490" height="360">
     
   </a>
 
 <h3 align="center"> Payment-Method </h3>
-<h3 align="center"> it's a project use different payment method like paypal , myfatoorah , Hyperpay , stripe </h3>
+<h3 align="center"> it's a project use different payment method like PayPal, MyFatoorah, HyperPay, Stripe </h3>
 
   <p align="center">
      Project payment-method
