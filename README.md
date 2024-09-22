@@ -1,3 +1,251 @@
+<br/>
+<p align="center">
+  <a href="https://github.com/ZeadShalaby/payment-method">
+          <img src="https://imgur.com/BBvbSTc.png?w=1600" alt="Logo" width="380" height="350">
+    
+  </a>
+
+<h3 align="center"> Payment-Method </h3>
+<h3 align="center"> it's a project use different payment method like paypal , myfatoorah , Hyperpay , stripe </h3>
+
+  <p align="center">
+     Project payment-method
+    <br/>
+    <br/>
+  </p>
+  
+![Forks](https://img.shields.io/github/forks/ZeadShalaby/payment-method?style=social) ![Issues](https://img.shields.io/github/issues/ZeadShalaby/payment-method) ![License](https://img.shields.io/github/license/ZeadShalaby/payment-method)
+
+## Table Of Contents
+
+* [About the Project](#about-the-project)
+* [Built With](#built-with)
+* [Getting Started](#getting-started)
+    * [Prerequisites](#prerequisites)
+    * [Installation](#installation)
+* [Usage](#usage)
+    * [Locally](#running-locally)
+    * [Via Container](#running-via-container)
+* [Contributing](#contributing)
+* [Authors](#authors)
+
+
+<br>
+
+
+</p>
+
+## About The Project
+it's a projects coded in Backend Laravel Rest api .
+Describe of the Project:
+payment-method: a place in which literary, musical, artistic, or reference materials (such as books, manuscripts, recordings, or films) are kept for use but not for sale. b. : a collection of such materials. a library of jazz recordings
+
+
+## Built With
+
+**Server:** Apache, Laravel
+
+**Miscellaneous:** Github
+
+
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+* laravel
+
+```sh
+composer global require laravel/installer
+```
+
+Make sure that either **MySQL** or **MariaDB** are installed either manually or via **phpMyAdmin**
+
+### Installation
+
+Clone the project
+
+```bash
+
+https://github.com/ZeadShalaby/payment-method
+```
+
+Go to the project directory
+
+```bash
+  cd payment-method
+```
+
+Install dependencies
+
+   - Run the following command to install the necessary packages:
+     ```bash
+     composer install
+     ```
+### Configure the Environment
+
+1. **Create a `.env` File**:
+   - Copy the `.env.example` file and rename it to `.env`:
+     ```bash
+     cp .env.example .env
+     ```
+
+2. **Generate an Application Key**:
+   - Run the command:
+     ```bash
+     php artisan key:generate
+     ```
+3. **Configure PAYPAL Settings**:
+   - Open the `.env` file in a text editor.
+   - Set the following variables to match your MAIL setup:
+     ```plaintext
+     
+        PAYPAL_MODE=sandbox
+        PAYPAL_SANDBOX_API_USERNAME=
+        PAYPAL_SANDBOX_API_PASSWORD=
+        PAYPAL_SANDBOX_API_SECRET=
+        PAYPAL_CURRENCY=USD | ...
+        PAYPAL_SANDBOX_API_CERTIFICATE=
+     
+     ```
+   - Adjust ` PAYPAL_SANDBOX_API_USERNAME` and ` PAYPAL_SANDBOX_API_PASSWORD` and `PAYPAL_SANDBOX_API_SECRET` .
+  
+4. **Configure MYFATOORAH Settings**:
+   - Open the `.env` file in a text editor.
+   - Set the following variables to match your MAIL setup:
+     ```plaintext
+                     
+            MYFATOORAH_API_KEY=
+            MYFATOORAH_BASE_URL=
+            MYFATOORAH_COUNTRY_ISO=KMT
+            MYFATOORAH_TEST_MODE=true
+    
+     ```
+   - Adjust `MYFATOORAH_API_KEY` and `MYFATOORAH_BASE_URL` .
+    
+5. **Configure STRIPE Settings**:
+   - Open the `.env` file in a text editor.
+   - Set the following variables to match your MAIL setup:
+     ```plaintext                       
+        
+        STRIPE_KEY=your_stripe_key
+        STRIPE_SECRET=your_stripe_secret
+        
+        JWT_SECRET=eonbpcLHVx1rwMv7C5R2pYLiTpeG7XEJ1y9KWxqgIuV20j4hjnteWUYEXVBhe2SM
+
+     ```
+   - Adjust `STRIPE_KEY` and `STRIPE_SECRET` .
+
+6. **Configure STRIPE Settings**:
+   - Open the `.env` file in a text editor.
+   - Set the following variables to match your MAIL setup:
+     ```plaintext                       
+        
+        STRIPE_KEY=your_stripe_key
+        STRIPE_SECRET=your_stripe_secret
+        
+     ```
+   - Adjust `STRIPE_KEY` and `STRIPE_SECRET` .
+
+
+     
+7. **Configure Database Settings**:
+   - Open the `.env` file in a text editor.
+   - Set the following variables to match your database setup:
+     ```plaintext
+     DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=KotabyDB
+     DB_USERNAME=root
+     DB_PASSWORD=
+     ```
+   - Adjust `DB_USERNAME` and `DB_PASSWORD` if needed.
+
+
+8. **Configure JWT Settings**:
+   - Open the `.env` file in a text editor.
+   - Set the following variables to match your MAIL setup:
+     ```plaintext                       
+        
+      JWT_SECRET=eonbpcLHVx1rwMv7C5R2pYLiTpeG7XEJ1y9KWxqgIuV20j4hjnteWUYEXVBhe2SM
+
+     ```
+   - Adjust `JWT_SECRET` .
+
+### Set Up the Database
+
+1. **Start XAMPP**:
+   - Open the XAMPP Control Panel and start the Apache and MySQL services.
+
+
+## Usage
+
+### Running Locally
+
+📌 Backend
+
+Make the migrations to update the database
+
+```bash
+    php artisan migrate
+```
+
+Seed the Database
+
+```bash
+    php artisan db:seed
+```
+
+Start the server and run watch
+
+```bash
+    php artisan serve
+```
+
+
+go to the following route
+
+```
+    http://127.0.0.1:8000/
+```
+ 
+
+## Contributing
+
+Any contributions you make are **greatly appreciated**.
+
+* If you have suggestions for adding or removing projects, feel free
+  to [open an issue](https://github.com/ZeadShalaby/payment-method/issues/new) to discuss it, or directly
+  create a pull request after you edit the *README.md* file with necessary changes.
+* Please make sure you check your spelling and grammar.
+* Create individual PR for each suggestion.
+* Make sure to add a meaningful description
+
+### Creating A Pull Request
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/GoalFeature`)
+3. Commit your Changes (`git commit -m 'Add some GoalFeature'`)
+4. Push to the Branch (`git push origin feature/GoalFeature`)
+5. Open a Pull Request
+
+
+
+## Authors
+* **Ziad Shalaby** - *Computer Science Student* - [Ziad Shalaby](https://github.com/ZeadShalaby)
+
+
+### Additional Tips
+
+- If you encounter any issues, check your terminal for error messages and verify your `.env` settings.
+- Ensure that the XAMPP services (Apache and MySQL) are running while you work on the project.
+- Use Google or Stack Overflow for any errors or questions you may have.
+- Refer to the [Laravel documentation](https://laravel.com/docs) for detailed information on Laravel features and usage.
+- Text me if you have any questions or need help with the project.
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -6,61 +254,3 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
