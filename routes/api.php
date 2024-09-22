@@ -34,7 +34,7 @@ Route::get('/payment/hyperpay/success', [HyperpayController::class, 'success'])-
 
 
 // ! Fatoorah Payment //
-Route::get('myfatoorah/index', [MyFatoorahController::class, 'index'])->name('myfatoorah.index');
+Route::POST('myfatoorah/pay', [MyFatoorahController::class, 'pay'])->name('myfatoorah.index');
 Route::get('myfatoorah/callback', [MyFatoorahController::class, 'callback'])->name('myfatoorah.callback');
 
 // ! Stripe Payment //
