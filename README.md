@@ -137,20 +137,8 @@ Install dependencies
      ```
    - Adjust `STRIPE_KEY` and `STRIPE_SECRET` .
 
-6. **Configure STRIPE Settings**:
-   - Open the `.env` file in a text editor.
-   - Set the following variables to match your MAIL setup:
-     ```plaintext                       
-        
-        STRIPE_KEY=your_stripe_key
-        STRIPE_SECRET=your_stripe_secret
-        
-     ```
-   - Adjust `STRIPE_KEY` and `STRIPE_SECRET` .
-
-
      
-7. **Configure Database Settings**:
+6. **Configure Database Settings**:
    - Open the `.env` file in a text editor.
    - Set the following variables to match your database setup:
      ```plaintext
@@ -164,7 +152,7 @@ Install dependencies
    - Adjust `DB_USERNAME` and `DB_PASSWORD` if needed.
 
 
-8. **Configure JWT Settings**:
+7. **Configure JWT Settings**:
    - Open the `.env` file in a text editor.
    - Set the following variables to match your MAIL setup:
      ```plaintext                       
