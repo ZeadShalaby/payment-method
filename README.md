@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/ZeadShalaby/payment-method">
-          <img src="https://imgur.com/BBvbSTc.png?w=1600" alt="Logo" width="380" height="350">
+          <img src="https://imgur.com/BBvbSTc.png?w=1600" alt="Logo" width="480" height="350">
     
   </a>
 
@@ -38,7 +38,7 @@
 ## About The Project
 it's a projects coded in Backend Laravel Rest api .
 Describe of the Project:
-payment-method: a place in which literary, musical, artistic, or reference materials (such as books, manuscripts, recordings, or films) are kept for use but not for sale. b. : a collection of such materials. a library of jazz recordings
+payment-method: Payment terms specify the time period in which a supplier requests payment and offers any discounts that they choose to make available for early payment. For example, payment terms of PT30 might mean that a payment is due within 30 days, but with a 3 percent discount available if payment is made within 15 days.
 
 
 ## Built With
