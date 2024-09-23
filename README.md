@@ -132,8 +132,6 @@ Install dependencies
         STRIPE_KEY=your_stripe_key
         STRIPE_SECRET=your_stripe_secret
         
-        JWT_SECRET=eonbpcLHVx1rwMv7C5R2pYLiTpeG7XEJ1y9KWxqgIuV20j4hjnteWUYEXVBhe2SM
-
      ```
    - Adjust `STRIPE_KEY` and `STRIPE_SECRET` .
 
