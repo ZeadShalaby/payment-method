@@ -2,43 +2,66 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Stripe;
+use Stripe\Charge;
+use Stripe\StripeClient;
 use Illuminate\Http\Request;
+use App\Traits\ResponseTrait;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class StripeController extends Controller
 {
-    //
-    /**
-     * todo Paypal Method */
-    public function stripe()
+    use ResponseTrait;
+
+
+    // ?todo return link for payment page  
+    public function getPaymentLink()
     {
-
-
+        $paymentLink = route('payment.stripe.index');
+        return $this->StripLink($paymentLink);
     }
 
-
-    /**
-     * todo Cancel Operation */
-    public function cancel()
+    // ?todo return view payment trip 
+    public function index()
     {
-        // return response()->json('Payment Cancelled', 402);
+        return view('stripe.index');
     }
 
-    /**
-     * todo Success Operation */
-    public function success(Request $request)
+    // ?todo Paypal Method 
+    public function stripe(Request $request)
     {
-        // $provider = new ExpressCheckout;
-        // $response = $provider->getExpressCheckoutDetails($request->token);
-        // if (in_array($response['ACK'], ['Success', 'SuccessWithWarning'])) {
-        //     /**
-        //      * todo Success Operation */
-        //     return response()->json('Payment Success', 200);
-        // }
 
-        // /** 
-        //  * todo Cancel Operation */
-        // return response()->json('Payment Cancelled', 402);
+        $request->validate([
+            'stripeToken' => 'required',
+        ]);
+
+        try {
+            // Initialize Stripe with secret key from .env
+            Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+            $paymentIntent = Charge::create([
+                "amount" => 100 * 100,
+                "currency" => "INR",
+                "source" => $request->stripeToken,
+                "description" => "This payment is testing purpose of websolutionstuff.com",
+            ]);
+
+            // Handle successful payment intent response
+            return $this->returnSuccessMessage($paymentIntent);
+
+        } catch (\Stripe\Exception\CardException $e) {
+            // Handle card-related errors
+            return $this->ErrorsPayments($e->getMessage());
+        } catch (\Exception $e) {
+            // Log any other error and return a general error message
+            Log::error('Stripe Payment Error: ' . $e->getMessage());
+            return $this->ErrorsPayments("Payment failed. Please try again later.");
+        }
     }
-
 }
+
+
+
+
+

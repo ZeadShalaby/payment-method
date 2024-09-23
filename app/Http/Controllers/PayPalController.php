@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Traits\ResponseTrait;
+use App\Http\Controllers\Controller;
 use Srmklive\PayPal\Services\ExpressCheckout;
 
 class PayPalController extends Controller
 {
 
+    use ResponseTrait;
     /**
      * todo Paypal Method */
     public function paypal()
@@ -36,7 +38,8 @@ class PayPalController extends Controller
         $data['total'] = 2600;
         $provider = new ExpressCheckout;
         $response = $provider->setExpressCheckout($data, true);
-        return redirect($response['paypal_link']);
+        return $this->returnData('linkPyPal', $response['paypal_link']);
+        // return redirect($response['paypal_link']);
     }
 
 

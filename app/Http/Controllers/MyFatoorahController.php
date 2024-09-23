@@ -78,6 +78,4 @@ class MyFatoorahController extends Controller
         return $this->responseSuccess($data, $message);
     }
 
-
-
 }

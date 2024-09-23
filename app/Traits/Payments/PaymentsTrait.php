@@ -9,6 +9,7 @@ use App\Models\Payments;
 trait PaymentsTrait
 {
 
+  // ?! my fatoorah
 
   // ?todo return pay info and return redirect callback
   public function getPayLoadData(User $user, Offers $offer)

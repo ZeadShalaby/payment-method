@@ -213,6 +213,17 @@ trait ResponseTrait
             return "";
     }
 
+    // ?todo return Success for Payments Process 
+    public function StripLink($link)
+    {
+        return response()->json([
+            'status' => true,
+            'errNum' => "S000",
+            'link' => $link,
+        ]);
+    }
+
+
 
     // ?todo return Success for Payments Process 
     public function SuccessPayments($payment)
