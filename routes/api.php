@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\PaymobController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\HyperpayController;
@@ -43,5 +44,7 @@ Route::get('/payment/stripe/link', [StripeController::class, 'getPaymentLink'])-
 Route::get('/payment/view', [StripeController::class, 'index'])->name('payment.stripe.index');
 Route::POST('/payment/stripe', [StripeController::class, 'stripe'])->name('payment.stripe');
 
+
 //! event listener
 Route::POST('/Event/Listeners', [EventController::class, 'index'])->name('Event.ındex');
+
