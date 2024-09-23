@@ -143,7 +143,7 @@ Install dependencies
      DB_CONNECTION=mysql
      DB_HOST=127.0.0.1
      DB_PORT=3306
-     DB_DATABASE=KotabyDB
+     DB_DATABASE=PaymentsDB
      DB_USERNAME=root
      DB_PASSWORD=
      ```
