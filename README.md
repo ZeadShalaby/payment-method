@@ -229,7 +229,7 @@ Any contributions you make are **greatly appreciated**.
 
 
 ## Authors
-* **Ziad Shalaby** - *Computer Science Student* - [Ziad Shalaby](https://github.com/ZeadShalaby)
+* **Ziad Shalaby** - *Software Engineer* - [Ziad Shalaby](https://github.com/ZeadShalaby)
 
 
 ### Additional Tips
