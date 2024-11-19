@@ -163,8 +163,8 @@ Install dependencies
    - Open the `.env` file in a text editor.
    - Set the following variables to match your MAIL setup:
      ```plaintext                       
-        
-      JWT_SECRET=eonbpcLHVx1rwMv7C5R2pYLiTpeG7XEJ1y9KWxqgIuV20j4hjnteWUYEXVBhe2SM
+        in terminal : php artisan jwt:secret
+        JWT_SECRET= ..............................
 
      ```
    - Adjust `JWT_SECRET` .
