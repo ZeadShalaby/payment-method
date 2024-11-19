@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\PaymobController;
+use App\Http\Controllers\PayMobController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\HyperpayController;
@@ -43,6 +43,12 @@ Route::get('/myfatoorah/callback', [MyFatoorahController::class, 'callback'])->n
 Route::get('/payment/stripe/link', [StripeController::class, 'getPaymentLink'])->name('payment.stripe.link');
 Route::get('/payment/view', [StripeController::class, 'index'])->name('payment.stripe.index');
 Route::POST('/payment/stripe', [StripeController::class, 'stripe'])->name('payment.stripe');
+
+
+// ! Paymob Payment //
+Route::post('/paymob/order', [PayMobController::class, 'createOrder']);
+Route::post('/paymob/callback', [PayMobController::class, 'paymentCallback']);
+
 
 
 //! event listener
