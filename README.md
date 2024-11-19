@@ -6,7 +6,7 @@
   </a>
 
 <h3 align="center"> Payment-Method </h3>
-<h3 align="center"> it's a project use different payment method like PayPal, MyFatoorah, HyperPay, Stripe </h3>
+<h3 align="center"> it's a project use different payment method like PayPal, MyFatoorah, HyperPay, Stripe , Paymob </h3>
 
   <p align="center">
      Project payment-method
