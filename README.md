@@ -134,9 +134,18 @@ Install dependencies
         
      ```
    - Adjust `STRIPE_KEY` and `STRIPE_SECRET` .
-
      
-6. **Configure Database Settings**:
+6. **Configure PAYMOB Settings**:
+   - Open the `.env` file in a text editor.
+   - Set the following variables to match your MAIL setup:
+     ```plaintext                       
+        
+        PAYMOB_API_URL=https://accept.paymob.com/api
+        PAYMOB_API_KEY=........................
+     ```
+   - Adjust `PAYMOB_API_KEY` and `PAYMOB_API_URL` .
+     
+7. **Configure Database Settings**:
    - Open the `.env` file in a text editor.
    - Set the following variables to match your database setup:
      ```plaintext
@@ -150,7 +159,7 @@ Install dependencies
    - Adjust `DB_USERNAME` and `DB_PASSWORD` if needed.
 
 
-7. **Configure JWT Settings**:
+8. **Configure JWT Settings**:
    - Open the `.env` file in a text editor.
    - Set the following variables to match your MAIL setup:
      ```plaintext                       
