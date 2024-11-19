@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/ZeadShalaby/payment-method">
-          <img src="https://imgur.com/BBvbSTc.png?w=1600" alt="Logo" width="500" height="350">
+          <img src="https://imgur.com/BBvbSTc.png?w=1600" alt="Logo" width="510" height="340">
     
   </a>
 
