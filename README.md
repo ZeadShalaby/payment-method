@@ -4,7 +4,6 @@
           <img src="https://imgur.com/BBvbSTc.png?w=1600" alt="Logo" width="510" height="340">
     
   </a>
-
 <h3 align="center"> Payment-Method </h3>
 <h3 align="center"> it's a project use different payment method like PayPal, MyFatoorah, HyperPay, Stripe , Paymob </h3>
 
