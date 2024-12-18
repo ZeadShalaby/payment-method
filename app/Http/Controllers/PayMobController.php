@@ -1,6 +1,4 @@
 <?php
-
-namespace App\Http\Controllers;
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -17,52 +15,61 @@ class PayMobController extends Controller
 
     public function createOrder()
     {
-        $amount = 10000; // المبلغ بالـ cents (أي 100 جنيه في هذه الحالة)
-        $currency = "EGP"; // العملة
+        $amount = 10000; // The amount in cents (100 EGP in this case)
+        $currency = "EGP"; // The currency
         $paymentOrder = $this->paymobService->createPaymentOrder($amount, $currency);
 
-        if ($paymentOrder) {
-            return response()->json($paymentOrder); // إرسال الرابط الجديد إلى العميل
+        if (isset($paymentOrder['error'])) {
+            return response()->json([
+                'error' => $paymentOrder['error'],
+                'details' => $paymentOrder['response'] ?? 'No response details available'
+            ], 500);
         }
 
-        return response()->json(['error' => 'Payment order creation failed'], 500);
+        // Check if the URL sent by PayMob is valid
+        $isValid = $this->checkUrlValidity($paymentOrder['order_url']);
+        if ($isValid) {
+            return response()->json($paymentOrder); // Return the new link to the client if it's valid
+        } else {
+            // Return an error if the URL is invalid
+            return response()->json([
+                'error' => 'Invalid payment URL, please contact your merchant',
+                'url' => $paymentOrder['order_url']
+            ], 400);
+        }
     }
 
-    // دالة للتحقق من حالة الدفع باستخدام الـ Token
+    // Function to check payment status using the Token
     public function checkPaymentStatus($token)
     {
-        // استخدم دالة من PaymobService تتحقق من حالة الدفع بناءً على الـ token
-        $paymentStatus = $this->paymobService->createPaymentOrder($token);
+        // Use a function from PaymobService to check the payment status based on the token
+        $paymentStatus = $this->paymobService->checkPaymentStatus($token);
 
         if ($paymentStatus) {
-            return response()->json($paymentStatus);  // رد بحالة الدفع
+            return response()->json($paymentStatus);  // Return the payment status
         }
 
         return response()->json(['error' => 'Payment status check failed'], 500);
     }
 
-    // دالة للتحقق من صلاحية الرابط
+    // Function to check the validity of the URL
     public function checkUrlValidity($url)
     {
-        // استخدم cURL للتحقق من صحة الرابط
+        // Use cURL to check the URL validity
         $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_NOBODY, true);  // لا تحمّل المحتوى
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  // لا تعرض النتيجة مباشرة
+        curl_setopt($ch, CURLOPT_NOBODY, true);  // Do not load the content
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  // Do not output the result directly
 
-        // تنفيذ الطلب
+        // Execute the request
         $response = curl_exec($ch);
         $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-        // تحقق من حالة الـ HTTP
-        if ($statusCode == 200) {
-            return true; // الرابط صالح
-        } else {
-            return false; // الرابط غير صالح
-        }
+        // Check the HTTP status
+        return $statusCode == 200; // If the status is 200, the URL is valid
     }
 
-    // دالة لعرض نتيجة التحقق من صلاحية الرابط
+    // Function to show the result of the URL validity check
     public function showUrlCheckResult()
     {
         $url = "https://accept.paymob.com/standalone/?ref=i_LRR2blVWcmxrS3RIcWpQd05DRVd2NUxCZz09X0NZd0UyTk55OUdSdVRuOWNsbDR3bGc9PQ";

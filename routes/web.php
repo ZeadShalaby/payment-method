@@ -1,6 +1,9 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\payment\PayMobController;
+use App\Http\Controllers\payment\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+// ?todo paymob 
+Route::get('/checkout/processed', [PayMobController::class, 'checkout_process'])->name('checkout.processed');
+
+Route::get("/checkout", [CheckoutController::class, "checkout"])->name("checkout");
+Route::get("checkout/response", function (Request $request) {
+    return $request->all();
 });

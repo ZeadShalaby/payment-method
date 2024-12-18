@@ -8,6 +8,7 @@ use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\HyperpayController;
 use App\Http\Controllers\MyFatoorahController;
+use App\Http\Controllers\PaymobsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ Route::get('/payment/paypal/success', [PayPalController::class, 'success'])->nam
 // ! Hyperpay Payment //
 Route::get('/payment/hyperpay/{price}', [HyperpayController::class, 'hyperpay'])->name('payment.hyperpay');
 Route::post('/payment/hyperpay/cancel', [HyperpayController::class, 'cancel'])->name('payment.hyperpay.cancel');
-Route::get('/payment/hyperpay/success', [HyperpayController::class, 'success'])->name('payment.hyperpay.success');
+Route::get('/checkout/{payment_method}/{integration_id}/{order_id}/{wallet_or_iframe}', [PaymobsController::class, 'checkingOut']);
 
 
 // ! Fatoorah Payment //

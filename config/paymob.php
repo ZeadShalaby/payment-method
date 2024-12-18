@@ -1,9 +1,32 @@
 <?php
-/**
- * PayPal Setting & API Credentials
- * Created by Raza Mehdi <srmk@outlook.com>.
- */
+
+
 return [
-    'api_key' => env('PAYMOB_API_KEY'),
-    'base_url' => 'https://paymob.com/api', // أو URL الـ API الصحيح من Paymob
+
+    /*
+    |--------------------------------------------------------------------------
+    | PayMob username and password
+    |--------------------------------------------------------------------------
+    |
+    | This is your PayMob username and password to make auth request.
+    |
+    */
+
+    'username' => env('PayMob_Username', '01553068530'),
+    'password' => env('PayMob_Password', 'c5itC7UGE_6u-de'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | PayMob integration id
+    |--------------------------------------------------------------------------
+    |
+    | This is your PayMob integration id.
+    |
+    */
+
+    'integration_id' => env('PayMob_Integration_Id', '4839708'),
 ];
+
+
+
+

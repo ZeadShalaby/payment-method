@@ -15,7 +15,7 @@ class PaymobService
         $this->apiUrl = env('PAYMOB_API_URL');
     }
 
-    // دالة للحصول على الـ token
+    // Function to get the authentication token
     public function getAuthToken()
     {
         $response = Http::post("{$this->apiUrl}/auth/tokens", [
@@ -29,28 +29,50 @@ class PaymobService
         return null;
     }
 
-    // دالة لإنشاء طلب دفع
+    // Function to create a payment order
     public function createPaymentOrder($amount)
     {
-        $authToken = $this->getAuthToken(); // الحصول على الـ token
+        $authToken = $this->getAuthToken(); // Get the token
         if (!$authToken) {
-            return null;
+            return ['error' => 'Unable to authenticate with PayMob API']; // Return error message if authentication fails
         }
+
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $authToken,
         ])->post("{$this->apiUrl}/ecommerce/orders", [
-                    'amount_cents' => $amount * 100,  // المبلغ بالقرش
+                    'amount_cents' => $amount * 100,  // Amount in cents
                     'currency' => 'EGP',
-                    'order_id' => uniqid(),  // معرف الطلب
+                    'order_id' => uniqid(),  // Unique order ID
                 ]);
 
+        // Check the response status
         if ($response->successful()) {
-            return $response->json(); // إرسال تفاصيل الطلب
+            return $response->json(); // Return order details
+        } else {
+            // Return error details if the operation fails
+            return [
+                'error' => 'Payment order creation failed',
+                'response' => $response->json() // Show error details from the response
+            ];
+        }
+    }
+
+    // Function to check payment status using the token
+    public function checkPaymentStatus($token)
+    {
+        $authToken = $this->getAuthToken(); // Get the token
+        if (!$authToken) {
+            return null;
+        }
+
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $authToken,
+        ])->get("{$this->apiUrl}/ecommerce/orders/{$token}");
+
+        if ($response->successful()) {
+            return $response->json();  // Return payment status
         }
 
         return null;
     }
-
-
-
 }
