@@ -1,12 +1,11 @@
 <br/>
 <p align="center">
   <a href="https://github.com/ZeadShalaby/payment-method">
-          <img src="https://imgur.com/BBvbSTc.png?w=1600" alt="Logo" width="490" height="360">
+          <img src="https://imgur.com/BBvbSTc.png?w=1600" alt="Logo" width="510" height="340">
     
   </a>
-
 <h3 align="center"> Payment-Method </h3>
-<h3 align="center"> it's a project use different payment method like PayPal, MyFatoorah, HyperPay, Stripe </h3>
+<h3 align="center"> it's a project use different payment method like PayPal, MyFatoorah, HyperPay, Stripe , Paymob </h3>
 
   <p align="center">
      Project payment-method
@@ -134,9 +133,18 @@ Install dependencies
         
      ```
    - Adjust `STRIPE_KEY` and `STRIPE_SECRET` .
-
      
-6. **Configure Database Settings**:
+6. **Configure PAYMOB Settings**:
+   - Open the `.env` file in a text editor.
+   - Set the following variables to match your MAIL setup:
+     ```plaintext                       
+        
+        PAYMOB_API_URL=https://accept.paymob.com/api
+        PAYMOB_API_KEY=........................
+     ```
+   - Adjust `PAYMOB_API_KEY` and `PAYMOB_API_URL` .
+     
+7. **Configure Database Settings**:
    - Open the `.env` file in a text editor.
    - Set the following variables to match your database setup:
      ```plaintext
@@ -150,12 +158,12 @@ Install dependencies
    - Adjust `DB_USERNAME` and `DB_PASSWORD` if needed.
 
 
-7. **Configure JWT Settings**:
+8. **Configure JWT Settings**:
    - Open the `.env` file in a text editor.
    - Set the following variables to match your MAIL setup:
      ```plaintext                       
-        
-      JWT_SECRET=eonbpcLHVx1rwMv7C5R2pYLiTpeG7XEJ1y9KWxqgIuV20j4hjnteWUYEXVBhe2SM
+        in terminal : php artisan jwt:secret
+        JWT_SECRET= ..............................
 
      ```
    - Adjust `JWT_SECRET` .
@@ -220,7 +228,7 @@ Any contributions you make are **greatly appreciated**.
 
 
 ## Authors
-* **Ziad Shalaby** - *Computer Science Student* - [Ziad Shalaby](https://github.com/ZeadShalaby)
+* **Ziad Shalaby** - *Software Engineer* - [Ziad Shalaby](https://github.com/ZeadShalaby)
 
 
 ### Additional Tips
